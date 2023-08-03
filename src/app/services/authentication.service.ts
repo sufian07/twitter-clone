@@ -48,7 +48,7 @@ export class AuthenticationService {
       }
     
       public isLoggedIn(): boolean {
-        let token = localStorage.getItem(this.tokenKey);
+        const token = localStorage.getItem(this.tokenKey);
         return token != null && token.length > 0;
       }
     
