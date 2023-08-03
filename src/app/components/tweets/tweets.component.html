@@ -1,0 +1,14 @@
+<div
+class="timeline-card-container"
+fxLayout="column"
+fxLayoutAlign="center"
+>
+<mat-card *ngFor="let tweet of tweets" class="mb-4">
+    <mat-card-header>
+        <mat-card-title>{{tweet?.user?.username}}</mat-card-title>
+        <mat-card-subtitle>{{tweet?.user?.email}}</mat-card-subtitle>
+        <mat-card-subtitle>{{tweet?.published}}</mat-card-subtitle>
+    </mat-card-header>    
+  <mat-card-content class="mt-4">{{tweet.content}}</mat-card-content>
+</mat-card>
+</div>

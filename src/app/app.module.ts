@@ -21,6 +21,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatDividerModule } from '@angular/material/divider';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { MyTweetPageComponent } from './my-tweet-page/my-tweet-page.component';
+import { TweetsComponent } from './components/tweets/tweets.component';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { MyTweetPageComponent } from './my-tweet-page/my-tweet-page.component';
     LoginPageComponent,
     HomePageComponent,
     SideBarComponent,
-    MyTweetPageComponent
+    MyTweetPageComponent,
+    TweetsComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
