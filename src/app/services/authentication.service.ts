@@ -1,7 +1,7 @@
 import { environment } from '../../configs/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { first, Observable } from 'rxjs';
 import { ILogIn, IRegistration, IToken } from '../dto/authentication.dto';
 import { Router } from '@angular/router';
 
@@ -20,14 +20,16 @@ export class AuthenticationService {
         });
     }
 
-    public login(dto:ILogIn): void {
-        this.http.post<IToken>(
+    public login(dto:ILogIn): Observable<IToken> {
+      const obs = this.http.post<IToken>(
         `${environment.API_BASE_URL}/${environment.LOGIN}`,
         dto,
-        ).subscribe((result) => {
+        );
+        obs.pipe(first()).subscribe((result) => {
             localStorage.setItem(this.tokenKey, result.token);
             this.router.navigate(['/']);
         });
+        return obs;
     }
 
     public register(dto: IRegistration): void {
