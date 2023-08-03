@@ -21,25 +21,27 @@ export class AuthenticationService {
     }
 
     public login(dto:ILogIn): Observable<IToken> {
-      const obs = this.http.post<IToken>(
+      const observable = this.http.post<IToken>(
         `${environment.API_BASE_URL}/${environment.LOGIN}`,
         dto,
         );
-        obs.pipe(first()).subscribe((result) => {
+        observable.pipe(first()).subscribe((result) => {
             localStorage.setItem(this.tokenKey, result.token);
             this.router.navigate(['/']);
         });
-        return obs;
+        return observable;
     }
 
-    public register(dto: IRegistration): void {
-        this.http.post<IToken>(
+    public register(dto: IRegistration): Observable<IToken> {
+        const observable = this.http.post<IToken>(
             `${environment.API_BASE_URL}/${environment.SIGN_UP}`,
             dto,
-        ).subscribe((result) => {
+        );
+        observable.subscribe((result) => {
           localStorage.setItem(this.tokenKey, result.token);
           this.router.navigate(['/']);
         });
+        return observable;
     }
 
     public logout() {
