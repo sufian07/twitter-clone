@@ -1,1 +1,17 @@
-<p>users works!</p>
+<div
+class="timeline-card-container"
+fxLayout="column"
+fxLayoutAlign="center"
+>
+<mat-card *ngFor="let user of users" class="mb-4">
+    <mat-card-header>
+        <mat-card-title>{{user?.username}}</mat-card-title>
+        <mat-card-subtitle>{{user?.email}}</mat-card-subtitle>
+        <mat-card-subtitle>{{user?.active}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+        <button mat-button color="primary">FOLLOW</button>
+        <button mat-button color="warn">UNFOLLOW</button>
+    </mat-card-actions>
+</mat-card>
+</div>

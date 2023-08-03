@@ -1,12 +1,7 @@
+import { IUser } from "./user.dto";
+
 export interface ITweetRequest {
     content: string;
-}
-
-export interface IUser {
-    id: number;
-    active: boolean;
-    email: string;
-    username: string;
 }
 
 export interface ITweet {

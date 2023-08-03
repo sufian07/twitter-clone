@@ -23,16 +23,7 @@
       </button>
       <mat-divider class="mt-4"></mat-divider>
       <span *ngIf="timeLineLoading" class="spinner-border spinner-border-sm me-1"></span>
-      <div
-        *ngIf="!timeLineLoading"
-        class="timeline-card-container"
-        fxLayout="column"
-        fxLayoutAlign="center"
-      >
-        <mat-card class="mt-4">
-          <mat-card-content>Simple card</mat-card-content>
-        </mat-card>
-      </div>
+      <app-tweets *ngIf="!loading" [tweets]="tweets"/>
     </div>
   </div>
 </div>

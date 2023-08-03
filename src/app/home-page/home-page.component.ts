@@ -15,7 +15,7 @@ export class HomePageComponent implements OnInit {
   public loading = false;
   public timeLineLoading = false;
   public submitted = false;
-  public timeline: Array<ITweet> = [];
+  public tweets: Array<ITweet> = [];
   constructor(
     private tweetService: TweetService,
     private toastr: ToastrService
@@ -34,7 +34,7 @@ export class HomePageComponent implements OnInit {
     this.tweetService.timeline().pipe(first())
     .subscribe({
         next: (result) => {
-          this.timeline = result.timeline;
+          this.tweets = result.timeline;
           this.timeLineLoading = false;
         },
         error: error => {

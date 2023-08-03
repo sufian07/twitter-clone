@@ -23,6 +23,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { MyTweetPageComponent } from './my-tweet-page/my-tweet-page.component';
 import { TweetsComponent } from './components/tweets/tweets.component';
 import { UsersComponent } from './components/users/users.component';
+import { UsersPageComponent } from './users-page/users-page.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { UsersComponent } from './components/users/users.component';
     SideBarComponent,
     MyTweetPageComponent,
     TweetsComponent,
-    UsersComponent
+    UsersComponent,
+    UsersPageComponent
   ],
   imports: [
     BrowserModule,

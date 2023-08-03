@@ -5,6 +5,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MyTweetPageComponent } from './my-tweet-page/my-tweet-page.component';
+import { UsersPageComponent } from './users-page/users-page.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,11 @@ const routes: Routes = [
   {
     path: 'my-tweets',
     component: MyTweetPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'users',
+    component: UsersPageComponent,
     canActivate: [AuthGuard],
   },
   {
