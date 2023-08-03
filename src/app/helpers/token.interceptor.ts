@@ -18,7 +18,6 @@ export class TokenInterceptor implements HttpInterceptor {
     if (this.authenticationService.isLoggedIn()) {
       const newRequest = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${this.authenticationService.getToken()}`,
           'X-Jwt-Token': `Bearer ${this.authenticationService.getToken()}`,
         },
       });

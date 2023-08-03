@@ -3,12 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './helpers/auth.guard';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
-import { SecretComponent } from './secret/secret.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { MyTweetPageComponent } from './my-tweet-page/my-tweet-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: SecretComponent,
+    component: HomePageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'my-tweets',
+    component: MyTweetPageComponent,
     canActivate: [AuthGuard],
   },
   {

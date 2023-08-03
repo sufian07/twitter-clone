@@ -6,23 +6,30 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { SecretComponent } from './secret/secret.component';
+import { HomePageComponent } from './home-page/home-page.component';
 import { TokenInterceptor } from './helpers/token.interceptor';
+import { UnauthorizedInterceptor } from './helpers/unauthorized.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
+import {MatChipsModule} from '@angular/material/chips';
 import { MatInputModule } from '@angular/material/input';
 import { ToastrModule } from 'ngx-toastr';
+import { MatDividerModule } from '@angular/material/divider';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { MyTweetPageComponent } from './my-tweet-page/my-tweet-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterPageComponent,
     LoginPageComponent,
-    SecretComponent
+    HomePageComponent,
+    SideBarComponent,
+    MyTweetPageComponent
   ],
   imports: [
     BrowserModule,
@@ -35,11 +42,14 @@ import { ToastrModule } from 'ngx-toastr';
     MatButtonModule,
     MatFormFieldModule,
     MatCardModule,
+    MatDividerModule,
+    MatChipsModule,
     MatInputModule,
     ToastrModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: UnauthorizedInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

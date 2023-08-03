@@ -21,4 +21,12 @@ export interface ITweetResponse {
     message: string;
     tweet: ITweet;
 }
+export interface ITimeLineResponse {
+    count: number;
+    timeline: Array<ITweet>;
+}
+export interface IMyTweetsResponse {
+    count: number;
+    my_tweets: Array<ITweet>;
+}
 

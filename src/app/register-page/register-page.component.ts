@@ -40,7 +40,7 @@ export class RegisterPageComponent implements OnInit {
     .subscribe({
       error: error => {
         this.toastr.error(error?.error?.error ?? error.message);
-          this.loading = false;
+        this.loading = false;
       }
     });
   }
