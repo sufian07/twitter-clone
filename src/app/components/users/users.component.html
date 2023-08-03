@@ -5,7 +5,7 @@ fxLayoutAlign="center"
 >
 <mat-card *ngFor="let user of users" class="mb-4">
     <mat-card-header>
-        <mat-card-title>{{user?.username}}</mat-card-title>
+        <mat-card-title><a [routerLink]="['/user', user?.id]">{{user?.username}}</a></mat-card-title>
         <mat-card-subtitle>{{user?.email}}</mat-card-subtitle>
         <mat-card-subtitle>{{user?.active}}</mat-card-subtitle>
     </mat-card-header>

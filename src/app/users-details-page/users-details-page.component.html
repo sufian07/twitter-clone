@@ -1,0 +1,29 @@
+
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-3">
+        <app-side-bar />
+      </div>
+      <div class="col-8">
+        <mat-card class="mb-4">
+            <mat-card-header>
+                <mat-card-title>{{user?.username}}</mat-card-title>
+                <mat-card-subtitle>{{user?.email}}</mat-card-subtitle>
+                <mat-card-subtitle>{{user?.active}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions>
+                <button mat-button color="primary">FOLLOW</button>
+                <button mat-button color="warn">UNFOLLOW</button>
+            </mat-card-actions>
+        </mat-card>
+        <mat-tab-group animationDuration="0ms">
+            <mat-tab label="Tweets">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                <app-tweets *ngIf="!loading" [tweets]="tweets"/>
+            </mat-tab>
+            <mat-tab label="Followers">Followers</mat-tab>
+            <mat-tab label="Followings">Followings</mat-tab>
+          </mat-tab-group>
+      </div>
+    </div>
+  </div>

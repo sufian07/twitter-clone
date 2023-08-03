@@ -24,6 +24,8 @@ import { MyTweetPageComponent } from './my-tweet-page/my-tweet-page.component';
 import { TweetsComponent } from './components/tweets/tweets.component';
 import { UsersComponent } from './components/users/users.component';
 import { UsersPageComponent } from './users-page/users-page.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { UsersDetailsPageComponent } from './users-details-page/users-details-page.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { UsersPageComponent } from './users-page/users-page.component';
     MyTweetPageComponent,
     TweetsComponent,
     UsersComponent,
-    UsersPageComponent
+    UsersPageComponent,
+    UsersDetailsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,7 @@ import { UsersPageComponent } from './users-page/users-page.component';
     MatFormFieldModule,
     MatCardModule,
     MatDividerModule,
+    MatTabsModule,
     MatChipsModule,
     MatInputModule,
     ToastrModule.forRoot(),
