@@ -55,7 +55,7 @@ export class UsersDetailsPageComponent implements OnInit{
     this.userService.followerByUserId(this.id).pipe(first())
     .subscribe({
         next: (result) => {
-          this.followers = result.followings;
+          this.followers = result.followers;
           this.loading = false;
         },
         error: error => {

@@ -7,6 +7,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MyTweetPageComponent } from './my-tweet-page/my-tweet-page.component';
 import { UsersPageComponent } from './users-page/users-page.component';
 import { UsersDetailsPageComponent } from './users-details-page/users-details-page.component';
+import { FollowersPageComponent } from './followers-page/followers-page.component';
+import { FollowingsPageComponent } from './followings-page/followings-page.component';
 
 const routes: Routes = [
   {
@@ -22,6 +24,16 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'followers',
+    component: FollowersPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'followings',
+    component: FollowingsPageComponent,
     canActivate: [AuthGuard],
   },
   {

@@ -15,6 +15,11 @@ export interface IUserFollowingResponse {
     followings: Array<IUser>;
 }
 
+export interface IUserFollowerResponse {
+    count: number;
+    followers: Array<IUser>;
+}
+
 export interface IResponse {
     resp: string
 }

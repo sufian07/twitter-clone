@@ -28,6 +28,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { UsersDetailsPageComponent } from './users-details-page/users-details-page.component';
 import { FollowButtonComponent } from './components/follow-button/follow-button.component';
 import { UnfollowButtonComponent } from './components/unfollow-button/unfollow-button.component';
+import { FollowersPageComponent } from './followers-page/followers-page.component';
+import { FollowingsPageComponent } from './followings-page/followings-page.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { UnfollowButtonComponent } from './components/unfollow-button/unfollow-b
     UsersPageComponent,
     UsersDetailsPageComponent,
     FollowButtonComponent,
-    UnfollowButtonComponent
+    UnfollowButtonComponent,
+    FollowersPageComponent,
+    FollowingsPageComponent
   ],
   imports: [
     BrowserModule,

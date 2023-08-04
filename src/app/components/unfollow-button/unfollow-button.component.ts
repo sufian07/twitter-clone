@@ -16,7 +16,7 @@ export class UnfollowButtonComponent {
     private toastr: ToastrService
   ) {}
   unfollow(){
-    if (this.id < 1) {
+    if (!this.id || this.id < 1) {
         return;
     }
     this.loading = true;

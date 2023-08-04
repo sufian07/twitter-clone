@@ -5,11 +5,11 @@ import { IUser } from '../dto/user.dto';
 import { UserService } from '../services/user.service';
 
 @Component({
-  selector: 'app-users-page',
-  templateUrl: './users-page.component.html',
-  styleUrls: ['./users-page.component.scss']
+  selector: 'app-followings-page',
+  templateUrl: './followings-page.component.html',
+  styleUrls: ['./followings-page.component.scss']
 })
-export class UsersPageComponent {
+export class FollowingsPageComponent {
   public loading = false;
   public users: Array<IUser> = [];
   constructor(
@@ -18,15 +18,15 @@ export class UsersPageComponent {
   ) {}
 
   ngOnInit() {
-    this.getUsers();
+    this.getMyFollowings();
   }
 
-  public getUsers() {
+  public getMyFollowings() {
     this.loading = true;
-    this.userService.users().pipe(first())
+    this.userService.followings().pipe(first())
     .subscribe({
         next: (result) => {
-          this.users = result.users;
+          this.users = result.followings;
           this.loading = false;
         },
         error: error => {
@@ -35,5 +35,4 @@ export class UsersPageComponent {
         }
     });
   }
-
 }

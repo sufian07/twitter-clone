@@ -16,7 +16,7 @@ export class FollowButtonComponent {
     private toastr: ToastrService
   ) {}
   follow(){
-    if (this.id < 1) {
+    if (!this.id || this.id < 1) {
         return;
     }
     this.loading = true;

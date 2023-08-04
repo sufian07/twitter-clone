@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { IMyTweetsResponse, ITimeLineResponse, ITweetRequest, ITweetResponse } from '../dto/tweet.dto';
-import { IResponse, IUser, IUserFollowingResponse, IUsersResponse } from '../dto/user.dto';
+import { IResponse, IUser, IUserFollowerResponse, IUserFollowingResponse, IUsersResponse } from '../dto/user.dto';
 
 @Injectable({
   providedIn: 'root',
@@ -33,6 +33,17 @@ export class UserService {
         );
     }
   
+    public followers(): Observable<IUserFollowerResponse> {
+      return this.http.get<IUserFollowerResponse>(
+        `${environment.API_BASE_URL}/${environment.FOLLOWERS}`,
+        );
+    }
+    public followings(): Observable<IUserFollowingResponse> {
+      return this.http.get<IUserFollowingResponse>(
+        `${environment.API_BASE_URL}/${environment.FOLLOWING}`,
+        );
+    }
+  
     public unfollow(id: string): Observable<IResponse> {
       return this.http.post<IResponse>(
         `${environment.API_BASE_URL}/${environment.UNFOLLOW}`,
@@ -40,8 +51,8 @@ export class UserService {
         );
     }
   
-    public followerByUserId(id: string): Observable<IUserFollowingResponse> {
-      return this.http.get<IUserFollowingResponse>(
+    public followerByUserId(id: string): Observable<IUserFollowerResponse> {
+      return this.http.get<IUserFollowerResponse>(
         `${environment.API_BASE_URL}/${environment.FOLLOWERS_BY_USER_ID.replace(':userId', id)}`
         );
     }
