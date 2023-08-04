@@ -5,7 +5,7 @@
         <app-side-bar />
       </div>
       <div class="col-8">
-        <mat-card class="mb-4">
+        <mat-card *ngIf="user.id" class="mb-4">
             <mat-card-header>
                 <mat-card-title>{{user.username}}</mat-card-title>
                 <mat-card-subtitle>{{user.email}}</mat-card-subtitle>

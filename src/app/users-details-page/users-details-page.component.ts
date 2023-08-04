@@ -42,6 +42,7 @@ export class UsersDetailsPageComponent implements OnInit{
     .subscribe({
         next: (result) => {
           this.tweets = result.tweets;
+          this.user = this.tweets[0]?.user
           this.loading = false;
         },
         error: error => {
