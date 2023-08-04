@@ -24,4 +24,8 @@ export interface IMyTweetsResponse {
     count: number;
     my_tweets: Array<ITweet>;
 }
+export interface IUserTweetsResponse {
+    count: number;
+    tweets: Array<ITweet>;
+}
 

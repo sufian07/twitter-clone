@@ -26,6 +26,8 @@ import { UsersComponent } from './components/users/users.component';
 import { UsersPageComponent } from './users-page/users-page.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { UsersDetailsPageComponent } from './users-details-page/users-details-page.component';
+import { FollowButtonComponent } from './components/follow-button/follow-button.component';
+import { UnfollowButtonComponent } from './components/unfollow-button/unfollow-button.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { UsersDetailsPageComponent } from './users-details-page/users-details-pa
     TweetsComponent,
     UsersComponent,
     UsersPageComponent,
-    UsersDetailsPageComponent
+    UsersDetailsPageComponent,
+    FollowButtonComponent,
+    UnfollowButtonComponent
   ],
   imports: [
     BrowserModule,

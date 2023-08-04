@@ -4,8 +4,18 @@ export interface IUser {
     email: string;
     username: string;
 }
+
 export interface IUsersResponse {
     count: number;
     users: Array<IUser>;
+}
+
+export interface IUserFollowingResponse {
+    count: number;
+    followings: Array<IUser>;
+}
+
+export interface IResponse {
+    resp: string
 }
 

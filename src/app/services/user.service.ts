@@ -1,26 +1,54 @@
 import { environment } from '../../configs/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { IMyTweetsResponse, ITimeLineResponse, ITweetRequest, ITweetResponse } from '../dto/tweet.dto';
-import { IUsersResponse } from '../dto/user.dto';
+import { IResponse, IUser, IUserFollowingResponse, IUsersResponse } from '../dto/user.dto';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+    private currentUser: Subject<IUser> = new Subject<IUser>();
+    private selectedUser: Subject<IUser> = new Subject<IUser>();
     constructor(private http: HttpClient) {}
 
-    // public createTwitter(dto:ITweetRequest): Observable<ITweetResponse> {
-    //   return this.http.post<ITweetResponse>(
-    //     `${environment.API_BASE_URL}/${environment.TWEET}`,
-    //     dto
-    //     );
-    // }
-
+    getCurrentUser(): Subject<IUser> {
+      return this.currentUser;
+    }
+    getSelectedUser(): Subject<IUser> {
+      return this.selectedUser;
+    }
+  
     public users(): Observable<IUsersResponse> {
       return this.http.get<IUsersResponse>(
         `${environment.API_BASE_URL}/${environment.USERS}`
+        );
+    }
+  
+    public follow(id: string): Observable<IResponse> {
+      return this.http.post<IResponse>(
+        `${environment.API_BASE_URL}/${environment.FOLLOW}`,
+        { 'user_id': id }
+        );
+    }
+  
+    public unfollow(id: string): Observable<IResponse> {
+      return this.http.post<IResponse>(
+        `${environment.API_BASE_URL}/${environment.UNFOLLOW}`,
+        { 'user_id': id }
+        );
+    }
+  
+    public followerByUserId(id: string): Observable<IUserFollowingResponse> {
+      return this.http.get<IUserFollowingResponse>(
+        `${environment.API_BASE_URL}/${environment.FOLLOWERS_BY_USER_ID.replace(':userId', id)}`
+        );
+    }
+
+    public followingByUserId(id: string): Observable<IUserFollowingResponse> {
+      return this.http.get<IUserFollowingResponse>(
+        `${environment.API_BASE_URL}/${environment.FOLLOWING_BY_USER_ID.replace(':userId', id)}`
         );
     }
 }
