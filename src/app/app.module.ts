@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { ToastrModule } from 'ngx-toastr';
 import { MatDividerModule } from '@angular/material/divider';
@@ -61,6 +62,7 @@ import { FollowingsPageComponent } from './followings-page/followings-page.compo
     MatCardModule,
     MatDividerModule,
     MatTabsModule,
+    MatIconModule,
     MatChipsModule,
     MatInputModule,
     ToastrModule.forRoot(),

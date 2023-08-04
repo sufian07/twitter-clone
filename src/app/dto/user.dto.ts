@@ -9,6 +9,10 @@ export interface IUsersResponse {
     count: number;
     users: Array<IUser>;
 }
+export interface ISearchResponse {
+    count: number;
+    search_results: Array<IUser>;
+}
 
 export interface IUserFollowingResponse {
     count: number;

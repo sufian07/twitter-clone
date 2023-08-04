@@ -11,6 +11,7 @@ import { UserService } from '../services/user.service';
 })
 export class UsersPageComponent {
   public loading = false;
+  public search='';
   public users: Array<IUser> = [];
   constructor(
     private userService: UserService,
@@ -19,6 +20,25 @@ export class UsersPageComponent {
 
   ngOnInit() {
     this.getUsers();
+  }
+
+  public searchUsers() {
+    this.loading = true;
+    if(this.search.length < 1) {
+      this.getUsers();
+      return
+    }
+    this.userService.search(this.search).pipe(first())
+    .subscribe({
+        next: (result) => {
+          this.users = result.search_results;
+          this.loading = false;
+        },
+        error: error => {
+          this.toastr.error(error?.error?.error ?? error.message);
+          this.loading = false;
+        }
+    });
   }
 
   public getUsers() {

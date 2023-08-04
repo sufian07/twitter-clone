@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { IMyTweetsResponse, ITimeLineResponse, ITweetRequest, ITweetResponse } from '../dto/tweet.dto';
-import { IResponse, IUser, IUserFollowerResponse, IUserFollowingResponse, IUsersResponse } from '../dto/user.dto';
+import { IResponse, ISearchResponse, IUser, IUserFollowerResponse, IUserFollowingResponse, IUsersResponse } from '../dto/user.dto';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +24,13 @@ export class UserService {
       return this.http.get<IUsersResponse>(
         `${environment.API_BASE_URL}/${environment.USERS}`
         );
+    }
+
+    public search(token: string): Observable<ISearchResponse> {
+      return this.http.post<ISearchResponse>(
+        `${environment.API_BASE_URL}/${environment.SEARCH}`,
+        {token}
+      );
     }
   
     public follow(id: string): Observable<IResponse> {
